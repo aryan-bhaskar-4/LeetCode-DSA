@@ -1,6 +1,16 @@
 class Solution {
 public:
     int finalElement(vector<int>& nums) {
-        return max(nums.front(), nums.back());
+        int m = nums.size();
+
+        if(nums[0] > nums[m-1]){
+            return nums[0];
+        }
+
+        if(m < 3){
+            return nums[m-1];
+        }
+
+        return max(nums[0],nums[m-1]);
     }
 };
