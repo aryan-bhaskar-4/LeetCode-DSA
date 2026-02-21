@@ -17,8 +17,15 @@ public:
         int count = 0;
 
         for(int i=left;i<=right;i++){
-            int setBits = __builtin_popcount(i);
-            if (isPrime(setBits)) {
+            int num=i;
+            int bits = 0;
+            while(num){
+                if(num&1){
+                    ++bits;
+                }
+                num>>=1;
+            }
+            if(isPrime(bits)){
                 count++;
             }
         }
