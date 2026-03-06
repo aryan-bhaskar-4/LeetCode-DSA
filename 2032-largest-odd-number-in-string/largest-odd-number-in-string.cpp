@@ -17,11 +17,13 @@ public:
             return "";
         }
 
-        for(int j=0;j<=i;j++){
-            ans += num[j];
-        }
+        return num.substr(0,i+1);
 
-        return ans;
+        // for(int j=0;j<=i;j++){
+        //     ans += num[j];
+        // }
+
+        // return ans;
 
         
     }
