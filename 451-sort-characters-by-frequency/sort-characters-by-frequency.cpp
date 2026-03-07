@@ -9,13 +9,13 @@ public:
             mp[s[i]]++;
         }
 
-        vector<pair<char,int>> V(mp.begin(),mp.end());
+        vector<pair<char,int>> pairs(mp.begin(),mp.end());
 
-        sort(V.begin(),V.end(),[] ( pair<char,int> &p1,pair<char,int> &p2){
+        sort(pairs.begin(),pairs.end(),[] ( pair<char,int> &p1,pair<char,int> &p2){
         return p1.second > p2.second;
         });
 
-        for(auto it:V){
+        for(auto it:pairs){
             for(int i=0;i<it.second;i++){
                 ans += it.first;
             }
