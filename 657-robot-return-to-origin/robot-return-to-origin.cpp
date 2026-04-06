@@ -17,9 +17,6 @@ public:
             }
         }
 
-        if(f == 0 && r == 0){
-            return true;
-        }
-        return false;
+        return f == 0 && r == 0;
     }
 };
