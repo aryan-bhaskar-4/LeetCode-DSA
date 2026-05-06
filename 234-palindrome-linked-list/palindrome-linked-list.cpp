@@ -10,53 +10,40 @@
  */
 class Solution {
 public:
-    ListNode* splitAtMid(ListNode* head){
+    bool isPalindrome(ListNode* head) {
         ListNode* slow = head;
         ListNode* fast = head;
-        ListNode* prev = NULL;
+        ListNode* prev = slow;
 
         while(fast != NULL && fast->next != NULL){
             prev = slow;
             slow = slow->next;
             fast = fast->next->next;
         }
+        if(prev != NULL) prev->next = NULL;
 
-        if(prev != NULL){
-            prev->next = NULL;
-        }
 
-        return slow;
-
-    }
-
-    ListNode* reverse(ListNode* head){
-        ListNode* prev = NULL;
-        ListNode* curr = head;
-        ListNode* next = NULL;
+        ListNode* newHead = slow;
+        ListNode* curr = newHead;
+        prev = NULL;
 
         while(curr != NULL){
-            next = curr->next;
+            ListNode* next = curr->next;
             curr->next = prev;
             prev = curr;
             curr = next;
         }
 
-        return prev;
-    }
-    bool isPalindrome(ListNode* head) {
-        ListNode* rightNode = splitAtMid(head);
-        ListNode* revRighthead = reverse(rightNode);
-        ListNode* temp = head;
-
-        while(temp != NULL && revRighthead != NULL){
-            if(temp->val != revRighthead->val){
+        newHead = prev;
+         
+        while(head != NULL && newHead != NULL){
+            if(head->val != newHead->val){
                 return false;
             }
-            temp = temp->next;
-            revRighthead = revRighthead->next;
+            head =  head->next;
+            newHead = newHead->next;
         }
 
         return true;
-
     }
 };
