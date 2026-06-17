@@ -32,8 +32,6 @@ public:
             i = i->next;
             ans = ans->next;
         }
-        
-
         while(j != NULL){
             ans->next = j;
             j = j->next;
